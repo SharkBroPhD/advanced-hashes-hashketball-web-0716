@@ -119,90 +119,87 @@ def game_hash
 }
 end
 
-def num_points_scored(name)
-  game_hash.each do |location, attribute|
-    attribute.each do |attribute, info|
-      if attribute == :players
-        info.collect do |info, stat|
-          if info == name
-            return game_hash[location][attribute][info][:points]
-          end
-        end
-      end
-    end
-  end
-end
+# def num_points_scored(name)
+#   game_hash.each do |location, attribute|
+#     attribute.each do |attribute, info|
+#       if attribute == :players
+#         info.collect do |info, stat|
+#           if info == name
+#             return game_hash[location][attribute][info][:points]
+#           end
+#         end
+#       end
+#     end
+#   end
+# end
 
-def shoe_size(name)
-  game_hash.each do |location, attribute|
-    attribute.each do |attribute, info|
-      if attribute == :players
-        info.collect do |info, stat|
-          if info == name
-            return game_hash[location][attribute][info][:shoe]
-          end
-        end
-      end
-    end
-  end
-end
+# num_points_scored("Jeff Adrien")
 
-def team_colors(team)
-  game_hash.each do |location, attribute|
-    attribute.each do |attribute, info|
-      if attribute == :team_name
-        if info==team
-          return game_hash[location][:colors]
-        end
-      end
-    end
-  end
-end
+# def team_colors(team)
+#   game_hash.each do |location, attribute|
+#     attribute.each do |attribute, info|
+#       if attribute == :team_name
+#         if info==team
+#           return game_hash[location][:colors]
+#         end
+#       end
+#     end
+#   end
+# end
 
-def team_names
-  teams=[]
-  game_hash.each do |location, attribute|
-    attribute.each do |attribute, info|
-      if attribute==:team_name
-        teams<<info
-      end
-    end
-  end
-  return teams
-end
+# team_colors("Brooklyn Nets")
 
-def player_numbers(team)
-  numbers=[]
-  game_hash.each do |location, attribute|
-    attribute.each do |attribute, info|
-      if attribute == :team_name
-        if info==team
-          game_hash[location][:players].each do |player,stat|
-            # binding.pry
-            numbers<<game_hash[location][:players][player][:number]
-          end
-        end
-      end
-    end
-  end
-  return numbers.sort
-end
+# def team_names
+#   teams=[]
+#   game_hash.each do |location, attribute|
+#     attribute.each do |attribute, info|
+#       if attribute==:team_name
+#         teams<<info
+#       end
+#     end
+#   end
+#   puts teams
+# end
+
+# team_names
+
+# def player_numbers(team)
+#   numbers=[]
+#   game_hash.each do |location, attribute|
+#     attribute.each do |attribute, info|
+#       if attribute == :team_name
+#         if info==team
+#           game_hash[location][:players].each do |player,stat|
+#             # binding.pry
+#             numbers<<game_hash[location][:players][player][:number]
+#           end
+#         end
+#       end
+#     end
+#   end
+#   puts numbers.sort
+# end
+
+# player_numbers("Brooklyn Nets")
+
+# def player_stats(player)
+#   game_hash.each do |location, attribute|
+#     attribute.each do |attribute, info|
+#       if attribute == :players
+#         info.each do |info, stat|
+#           if info == player
+#             return game_hash[location][attribute][info]
+#           end
+#         end
+#       end
+#     end
+#   end
+# end
 
 
-def player_stats(player)
-  game_hash.each do |location, attribute|
-    attribute.each do |attribute, info|
-      if attribute == :players
-        info.each do |info, stat|
-          if info == player
-            return game_hash[location][attribute][info]
-          end
-        end
-      end
-    end
-  end
-end
+# player_stats("Jeff Adrien")
 
+#if x player has largest shoe size, return their rebounds
 
 def big_shoe_rebounds
   shoe_sizes=[]
@@ -234,3 +231,5 @@ def big_shoe_rebounds
     end
   end
 end
+
+big_shoe_rebounds
